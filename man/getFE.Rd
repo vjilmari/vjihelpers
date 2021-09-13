@@ -4,15 +4,19 @@
 \alias{getFE}
 \title{Fixed effects from linear mixed model}
 \usage{
-getFE(model, ci.level = 0.95)
+getFE(model, ci.level = 0.95, round = 2, p.round = 3)
 }
 \arguments{
 \item{model}{fitted model with lmerTest function}
 
 \item{ci.level}{width of confidence intervals}
+
+\item{round}{rounding for all but p-values (default 2)}
+
+\item{p.round}{rounding for p-values (default 3)}
 }
 \value{
-A fromatted data frame of fixed effects
+A formatted data frame of fixed effects
 }
 \description{
 Fixed effects from linear mixed model
