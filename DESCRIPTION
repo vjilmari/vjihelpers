@@ -7,9 +7,8 @@ Authors@R:
            role = c("aut", "cre"),
            email = "vj.ilmarinen@gmail.com",
            comment = c(ORCID = "https://orcid.org/0000-0001-9493-379X"))
-Description: Toolbox with different types of tools
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Description: Different types of tools for data preparation, wrangling, and analysis.
+License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

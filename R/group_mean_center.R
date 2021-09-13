@@ -1,13 +1,24 @@
 #' Returns data including group means and group mean centered variables
 #'
-#' @param data
-#' @param group.var
-#' @param vars
-#' @param grand.init
+#' @param data data frame of individual observations across multiple groups
+#' @param group.var character string name of the grouping variable
+#' @param vars vector of variable names to be centered
+#' @param grand.init is initial grand mean centering to each variable applied (default FALSE)
 #'
-#' @return
+#' @return data frame with group means and variables centered around group means
 #' @export
 #' @examples
+#' set.seed(234)
+#' n1=3 #groups
+#' n2=3 #observations per groups
+#' dat<-data.frame(
+#' group=rep(c(LETTERS[1:n1]),each=n2),
+#' x1=sample(1:5,9,replace=TRUE),
+#' x2=sample(1:5,9,replace=TRUE),
+#' x3=sample(1:5,9,replace=TRUE))
+#'
+#' group_mean_center(data=dat,group.var = "group",
+#' vars = c("x1","x2","x3"))
 group_mean_center<-function(data,
                             group.var,
                             vars,
@@ -19,7 +30,7 @@ group_mean_center<-function(data,
 
   group.data<-
     stats::aggregate(data[, vars],
-                     list(dat[,group.var]), mean)
+                     list(data[,group.var]), mean)
 
 
   join_vars <- colnames(group.data)[1]

@@ -1,11 +1,12 @@
 #' Simple centering helper
 #'
-#' @param x
+#' @param x numeric variable
+#' @param na.rm remove missing values? (default TRUE)
 #'
-#' @return
+#' @return numeric variable centered around its mean
 #' @export
 #'
-#' @examples
-center<-function(x){
-  x-mean(x,na.rm=T)
+#' @examples center(c(1,2,3,5,3,2),na.rm=TRUE)
+center<-function(x,na.rm=TRUE){
+  x-mean(x,na.rm=na.rm)
 }
