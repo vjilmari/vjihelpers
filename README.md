@@ -11,16 +11,8 @@ functions to same package.
 
 ## Installation
 
-You can install the released version of vjihelpers from
-[CRAN](https://CRAN.R-project.org) with:
-
--   There is no CRAN version available
-
-``` r
-install.packages("vjihelpers")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install the development version from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
