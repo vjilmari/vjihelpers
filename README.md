@@ -34,9 +34,9 @@ n2=3 #observations per groups
 
 dat<-data.frame(
   group=rep(c(LETTERS[1:n1]),each=n2),
-  x1=sample(1:5,9,replace=TRUE),
-  x2=sample(1:5,9,replace=TRUE),
-  x3=sample(1:5,9,replace=TRUE))
+  x1=sample(1:5,n1*n2,replace=TRUE),
+  x2=sample(1:5,n1*n2,replace=TRUE),
+  x3=sample(1:5,n1*n2,replace=TRUE))
 
 group_mean_center(data=dat,group.var = "group",
                   vars = c("x1","x2","x3"))
