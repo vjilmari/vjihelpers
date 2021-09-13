@@ -2,7 +2,7 @@
 % Please edit documentation in R/lvl2_var_cond_lvl1.R
 \name{lvl2_var_cond_lvl1}
 \alias{lvl2_var_cond_lvl1}
-\title{Title}
+\title{Variance between level 2 units at different values of level 1 variables.}
 \usage{
 lvl2_var_cond_lvl1(model, lvl1.var, lvl1.values)
 }
@@ -17,21 +17,28 @@ lvl2_var_cond_lvl1(model, lvl1.var, lvl1.values)
 data frame of level 2 variance estimates conditioned on level 1 variable values
 }
 \description{
-Title
+Variance between level 2 units at different values of level 1 variables.
 }
 \examples{
-cdat<-group_mean_center(data=iris,
-vars=c("Sepal.Length",
-"Sepal.Width",
-"Petal.Length",
-"Petal.Width"),
-group.var="Species",
-grand.init=TRUE)
+cdat <- group_mean_center(
+  data = iris,
+  vars = c(
+    "Sepal.Length",
+    "Sepal.Width",
+    "Petal.Length",
+    "Petal.Width"
+  ),
+  group.var = "Species",
+  grand.init = TRUE
+)
 
-fit<-lme4::lmer(Sepal.Length~Petal.Length.gmc+(Petal.Length.gmc|Species),
-data=cdat,REML=FALSE)
+fit <- lme4::lmer(Sepal.Length ~ Petal.Length.gmc + (Petal.Length.gmc | Species),
+  data = cdat, REML = FALSE
+)
 
-lvl2_var_cond_lvl1(model=fit,
-lvl1.var="Petal.Length.gmc",
-lvl1.values=c(-2,-1,0,1,2))
+lvl2_var_cond_lvl1(
+  model = fit,
+  lvl1.var = "Petal.Length.gmc",
+  lvl1.values = c(-2, -1, 0, 1, 2)
+)
 }
