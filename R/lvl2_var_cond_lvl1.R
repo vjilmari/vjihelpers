@@ -1,10 +1,10 @@
 #' Variance between level 2 units at different values of level 1 variables.
 #'
-#' @param model mixed effect model fitted with lmer. Must include random intercept, slope, and their covariation
-#' @param lvl1.var Level 1 variable name
-#' @param lvl1.values Level 1 variable values
+#' @param model Mixed effect model fitted with lmer. Must include random intercept, slope, and their covariation.
+#' @param lvl1.var Level 1 variable name.
+#' @param lvl1.values Level 1 variable values.
 #'
-#' @return data frame of level 2 variance estimates conditioned on level 1 variable values
+#' @return Data frame of level 2 variance estimates conditioned on level 1 variable values.
 #' @export
 #'
 #' @examples
