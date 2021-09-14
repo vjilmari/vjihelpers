@@ -7,14 +7,14 @@
 lvl2_var_cond_lvl1(model, lvl1.var, lvl1.values)
 }
 \arguments{
-\item{model}{mixed effect model fitted with lmer. Must include random intercept, slope, and their covariation}
+\item{model}{Mixed effect model fitted with lmer. Must include random intercept, slope, and their covariation.}
 
-\item{lvl1.var}{Level 1 variable name}
+\item{lvl1.var}{Level 1 variable name.}
 
-\item{lvl1.values}{Level 1 variable values}
+\item{lvl1.values}{Level 1 variable values.}
 }
 \value{
-data frame of level 2 variance estimates conditioned on level 1 variable values
+Data frame of level 2 variance estimates conditioned on level 1 variable values.
 }
 \description{
 Variance between level 2 units at different values of level 1 variables.

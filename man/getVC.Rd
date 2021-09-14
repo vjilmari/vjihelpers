@@ -7,27 +7,32 @@
 getVC(model, round = 2)
 }
 \arguments{
-\item{model}{lmer fitted model}
+\item{model}{lmer fitted model.}
 
-\item{round}{rounding for numbers (default 2)}
+\item{round}{Rounding for numbers (default 2).}
 }
 \value{
-A formatted data frame of random effect variance/sd estimates
+A formatted data frame of random effect variance/sd estimates.
 }
 \description{
 Fixed effect variance/sd estimates from linear mixed model
 }
 \examples{
 set.seed(234)
-n1=3 #groups
-n2=3 #observations per groups
-dat<-data.frame(
-group=rep(c(LETTERS[1:n1]),each=n2),
-x1=sample(1:5,n1*n2,replace=TRUE),
-x2=sample(1:5,n1*n2,replace=TRUE),
-x3=sample(1:5,n1*n2,replace=TRUE))
+n1 <- 3 # groups
+n2 <- 3 # observations per groups
+dat <- data.frame(
+  group = rep(c(LETTERS[1:n1]), each = n2),
+  x1 = sample(1:5, n1 * n2, replace = TRUE),
+  x2 = sample(1:5, n1 * n2, replace = TRUE),
+  x3 = sample(1:5, n1 * n2, replace = TRUE)
+)
 library(lme4)
-getVC(lmer(x1~x2+x3+(x3|group),data=dat,REML=FALSE,
-control=lmerControl(optimizer="bobyqa",
-optCtrl=list(maxfun=2e5))))
+getVC(lmer(x1 ~ x2 + x3 + (x3 | group),
+  data = dat, REML = FALSE,
+  control = lmerControl(
+    optimizer = "bobyqa",
+    optCtrl = list(maxfun = 2e5)
+  )
+))
 }

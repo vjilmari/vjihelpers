@@ -7,12 +7,12 @@
 center(x, na.rm = TRUE)
 }
 \arguments{
-\item{x}{numeric variable}
+\item{x}{Numeric variable.}
 
-\item{na.rm}{remove missing values? (default TRUE)}
+\item{na.rm}{Remove missing values (default TRUE)?}
 }
 \value{
-numeric variable centered around its mean
+Numeric variable centered around its mean.
 }
 \description{
 Simple centering helper

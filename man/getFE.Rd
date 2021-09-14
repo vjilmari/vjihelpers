@@ -7,28 +7,30 @@
 getFE(model, ci.level = 0.95, round = 2, p.round = 3)
 }
 \arguments{
-\item{model}{fitted model with lmerTest function}
+\item{model}{Fitted model with lmerTest.}
 
-\item{ci.level}{width of confidence intervals}
+\item{ci.level}{Width of confidence intervals.}
 
-\item{round}{rounding for all but p-values (default 2)}
+\item{round}{Rounding for all but p-values (default 2).}
 
-\item{p.round}{rounding for p-values (default 3)}
+\item{p.round}{Rounding for p-values (default 3).}
 }
 \value{
-A formatted data frame of fixed effects
+A formatted data frame of fixed effects.
 }
 \description{
 Fixed effects from linear mixed model
 }
 \examples{
 set.seed(234)
-n1=3 #groups
-n2=3 #observations per groups
+n1 <- 3 # groups
+n2 <- 3 # observations per groups
 
-dat<-data.frame(group=rep(c(LETTERS[1:n1]),each=n2),
-x1=sample(1:5,n1*n2,replace=TRUE),
-x2=sample(1:5,n1*n2,replace=TRUE),
-x3=sample(1:5,n1*n2,replace=TRUE))
-getFE(lmerTest::lmer(x1~x2+x3+(1|group),data=dat,REML=FALSE))
+dat <- data.frame(
+  group = rep(c(LETTERS[1:n1]), each = n2),
+  x1 = sample(1:5, n1 * n2, replace = TRUE),
+  x2 = sample(1:5, n1 * n2, replace = TRUE),
+  x3 = sample(1:5, n1 * n2, replace = TRUE)
+)
+getFE(lmerTest::lmer(x1 ~ x2 + x3 + (1 | group), data = dat, REML = FALSE))
 }

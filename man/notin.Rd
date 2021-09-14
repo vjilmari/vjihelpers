@@ -7,17 +7,17 @@
 notin(x, y)
 }
 \arguments{
-\item{x}{vector: the values to be matched}
+\item{x}{Vector: the values to be matched.}
 
-\item{y}{vector: the values to be matched against}
+\item{y}{Vector: the values to be matched against.}
 }
 \value{
-a vector of positions of mismatches
+A vector of positions of mismatches.
 }
 \description{
 Value mismatching
 }
 \examples{
-notin(c("a"),c("a","b"))
-notin(c("a"),c("c","b"))
+notin(c("a"), c("a", "b"))
+notin(c("a"), c("c", "b"))
 }

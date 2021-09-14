@@ -7,30 +7,33 @@
 group_mean_center(data, group.var, vars, grand.init = FALSE)
 }
 \arguments{
-\item{data}{data frame of individual observations across multiple groups}
+\item{data}{Data frame of individual observations across multiple groups.}
 
-\item{group.var}{character string name of the grouping variable}
+\item{group.var}{Character string name of the grouping variable.}
 
-\item{vars}{vector of variable names to be centered}
+\item{vars}{Vector of numeric variable names to be centered.}
 
-\item{grand.init}{is initial grand mean centering to each variable applied (default FALSE)}
+\item{grand.init}{Is initial grand mean centering to each variable applied (default FALSE)?}
 }
 \value{
-data frame with group means and variables centered around group means
+Data frame with group means and variables centered around group means.
 }
 \description{
 Returns data including group means and group mean centered variables
 }
 \examples{
 set.seed(234)
-n1=3 #groups
-n2=3 #observations per groups
-dat<-data.frame(
-group=rep(c(LETTERS[1:n1]),each=n2),
-x1=sample(1:5,n1*n2,replace=TRUE),
-x2=sample(1:5,n1*n2,replace=TRUE),
-x3=sample(1:5,n1*n2,replace=TRUE))
+n1 <- 3 # groups
+n2 <- 3 # observations per groups
+dat <- data.frame(
+  group = rep(c(LETTERS[1:n1]), each = n2),
+  x1 = sample(1:5, n1 * n2, replace = TRUE),
+  x2 = sample(1:5, n1 * n2, replace = TRUE),
+  x3 = sample(1:5, n1 * n2, replace = TRUE)
+)
 
-group_mean_center(data=dat,group.var = "group",
-vars = c("x1","x2","x3"))
+group_mean_center(
+  data = dat, group.var = "group",
+  vars = c("x1", "x2", "x3")
+)
 }
