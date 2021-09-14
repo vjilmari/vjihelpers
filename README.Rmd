@@ -37,22 +37,46 @@ This is a basic example which shows you how to solve a common problem:
 library(vjihelpers)
 ## basic example code
 
-#generate multigroup numeric data
+# generate multigroup numeric data
 set.seed(234)
-n1=3 #groups
-n2=3 #observations per groups
+n1 <- 3 # groups
+n2 <- 3 # observations per groups
 
-dat<-data.frame(
-  group=rep(c(LETTERS[1:n1]),each=n2),
-  x1=sample(1:5,n1*n2,replace=TRUE),
-  x2=sample(1:5,n1*n2,replace=TRUE),
-  x3=sample(1:5,n1*n2,replace=TRUE))
+dat <- data.frame(
+  group = rep(c(LETTERS[1:n1]), each = n2),
+  x1 = sample(1:5, n1 * n2, replace = TRUE),
+  x2 = sample(1:5, n1 * n2, replace = TRUE),
+  x3 = sample(1:5, n1 * n2, replace = TRUE)
+)
 
-group_mean_center(data=dat,group.var = "group",
-                  vars = c("x1","x2","x3"))
+group_mean_center(
+  data = dat, group.var = "group",
+  vars = c("x1", "x2", "x3")
+)
 
-getFE(lmerTest::lmer(x1~x2+x3+(1|group),data=dat,REML=F),
-      ci.level=.80)
+getFE(lmerTest::lmer(x1 ~ x2 + x3 + (1 | group), data = dat, REML = F),
+  ci.level = .80
+)
+
+cdat <- group_mean_center(
+  data = iris,
+  vars = c(
+    "Sepal.Length",
+    "Sepal.Width",
+    "Petal.Length",
+    "Petal.Width"
+  ),
+  group.var = "Species",
+  grand.init = TRUE
+)
+fit <- lme4::lmer(Sepal.Length ~ Petal.Length.gmc + (Petal.Length.gmc | Species),
+  data = cdat, REML = FALSE
+)
+lvl2_var_cond_lvl1(
+  model = fit,
+  lvl1.var = "Petal.Length.gmc",
+  lvl1.values = c(-2, -1, 0, 1, 2)
+)
 ```
 
 
