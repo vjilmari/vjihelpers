@@ -48,7 +48,8 @@ lvl2_var_cond_lvl1 <- function(model, lvl1.var, lvl1.values) {
 
   output <- cbind.data.frame(
     lvl1.value = lvl1.values,
-    lvl2.cond.var = cond.lvl2.values
+    lvl2.cond.var = cond.lvl2.values,
+    lvl2.cond.sd = sqrt(cond.lvl2.values)
   )
   return(output)
 }
