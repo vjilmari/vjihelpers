@@ -30,7 +30,7 @@
 #'   lvl1.values = c(-2, -1, 0, 1, 2)
 #' )
 lvl2_var_cond_lvl1 <- function(model, lvl1.var, lvl1.values) {
-  VC.frame <- getVC(model)
+  VC.frame <- getVC(model,round=12)
   VC.frame[is.na(VC.frame)] <- "empty"
 
 
