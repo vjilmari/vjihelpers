@@ -36,6 +36,11 @@ group_mean_center <- function(data,
       list(data[, group.var]), mean
     )
 
+  # automatically names as x if only one vars
+  if (length(vars)==1){
+    names(group.data)<-c(names(group.data[1]),vars)
+  }
+
 
   join_vars <- colnames(group.data)[1]
   names(join_vars) <- group.var
