@@ -3,6 +3,7 @@
 export(center)
 export(getFE)
 export(getVC)
+export(get_sem_fit)
 export(group_mean_center)
 export(lvl2_var_cond_lvl1)
 export(na_standardize)
