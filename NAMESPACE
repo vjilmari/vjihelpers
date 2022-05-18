@@ -2,6 +2,7 @@
 
 export(center)
 export(getFE)
+export(getFE_glmer)
 export(getVC)
 export(get_sem_fit)
 export(group_mean_center)
